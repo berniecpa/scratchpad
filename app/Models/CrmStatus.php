@@ -4,6 +4,7 @@ namespace App\Models;
 
 use \DateTimeInterface;
 use App\Support\HasAdvancedFilter;
+use App\Traits\Auditable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -13,6 +14,7 @@ class CrmStatus extends Model
     use HasFactory;
     use HasAdvancedFilter;
     use SoftDeletes;
+    use Auditable;
 
     public $table = 'crm_statuses';
 

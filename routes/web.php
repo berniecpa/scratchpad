@@ -33,9 +33,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
     Route::resource('audit-logs', AuditLogController::class, ['except' => ['store', 'update', 'destroy', 'create', 'edit']]);
 
     // Crm Status
+    Route::post('crm-statuses/csv', [CrmStatusController::class, 'csvStore'])->name('crm-statuses.csv.store');
+    Route::put('crm-statuses/csv', [CrmStatusController::class, 'csvUpdate'])->name('crm-statuses.csv.update');
     Route::resource('crm-statuses', CrmStatusController::class, ['except' => ['store', 'update', 'destroy']]);
 
     // Crm Customer
+    Route::post('crm-customers/csv', [CrmCustomerController::class, 'csvStore'])->name('crm-customers.csv.store');
+    Route::put('crm-customers/csv', [CrmCustomerController::class, 'csvUpdate'])->name('crm-customers.csv.update');
     Route::resource('crm-customers', CrmCustomerController::class, ['except' => ['store', 'update', 'destroy']]);
 
     // Crm Note
@@ -43,6 +47,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
 
     // Crm Document
     Route::post('crm-documents/media', [CrmDocumentController::class, 'storeMedia'])->name('crm-documents.storeMedia');
+    Route::post('crm-documents/csv', [CrmDocumentController::class, 'csvStore'])->name('crm-documents.csv.store');
+    Route::put('crm-documents/csv', [CrmDocumentController::class, 'csvUpdate'])->name('crm-documents.csv.update');
     Route::resource('crm-documents', CrmDocumentController::class, ['except' => ['store', 'update', 'destroy']]);
 });
 
