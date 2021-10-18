@@ -1,12 +1,15 @@
 <?php
 
 use App\Http\Controllers\Admin\AuditLogController;
+use App\Http\Controllers\Admin\ConnectionController;
 use App\Http\Controllers\Admin\CrmCustomerController;
 use App\Http\Controllers\Admin\CrmDocumentController;
 use App\Http\Controllers\Admin\CrmNoteController;
 use App\Http\Controllers\Admin\CrmStatusController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Admin\PlaidTransactionController;
+use App\Http\Controllers\Admin\QboReportController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\UserProfileController;
@@ -50,6 +53,15 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
     Route::post('crm-documents/csv', [CrmDocumentController::class, 'csvStore'])->name('crm-documents.csv.store');
     Route::put('crm-documents/csv', [CrmDocumentController::class, 'csvUpdate'])->name('crm-documents.csv.update');
     Route::resource('crm-documents', CrmDocumentController::class, ['except' => ['store', 'update', 'destroy']]);
+
+    // Connections
+    Route::resource('connections', ConnectionController::class, ['except' => ['store', 'update', 'destroy']]);
+
+    // Qbo Reports
+    Route::resource('qbo-reports', QboReportController::class, ['except' => ['store', 'update', 'destroy']]);
+
+    // Plaid Transactions
+    Route::resource('plaid-transactions', PlaidTransactionController::class, ['except' => ['store', 'update', 'destroy']]);
 });
 
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['auth']], function () {

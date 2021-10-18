@@ -170,6 +170,74 @@ class PermissionsTableSeeder extends Seeder
                 'id'    => 40,
                 'title' => 'crm_document_access',
             ],
+            [
+                'id'    => 41,
+                'title' => 'setting_access',
+            ],
+            [
+                'id'    => 42,
+                'title' => 'connection_create',
+            ],
+            [
+                'id'    => 43,
+                'title' => 'connection_edit',
+            ],
+            [
+                'id'    => 44,
+                'title' => 'connection_show',
+            ],
+            [
+                'id'    => 45,
+                'title' => 'connection_delete',
+            ],
+            [
+                'id'    => 46,
+                'title' => 'connection_access',
+            ],
+            [
+                'id'    => 47,
+                'title' => 'integration_access',
+            ],
+            [
+                'id'    => 48,
+                'title' => 'qbo_report_create',
+            ],
+            [
+                'id'    => 49,
+                'title' => 'qbo_report_edit',
+            ],
+            [
+                'id'    => 50,
+                'title' => 'qbo_report_show',
+            ],
+            [
+                'id'    => 51,
+                'title' => 'qbo_report_delete',
+            ],
+            [
+                'id'    => 52,
+                'title' => 'qbo_report_access',
+            ],
+            [
+                'id'    => 53,
+                'title' => 'plaid_transaction_create',
+            ],
+            [
+                'id'    => 54,
+                'title' => 'plaid_transaction_edit',
+            ],
+            [
+                'id'    => 55,
+                'title' => 'plaid_transaction_show',
+            ],
+            [
+                'id'    => 56,
+                'title' => 'plaid_transaction_delete',
+            ],
+            [
+                'id'    => 57,
+                'title' => 'plaid_transaction_access',
+            ],
         ];
 
         Permission::insert($permissions);

@@ -181,4 +181,24 @@ return [
             'deleted_at_helper'    => ' ',
         ],
     ],
+    'setting' => [
+        'title'          => 'Settings',
+        'title_singular' => 'Setting',
+    ],
+    'connection' => [
+        'title'          => 'Connections',
+        'title_singular' => 'Connection',
+    ],
+    'integration' => [
+        'title'          => 'Integrations',
+        'title_singular' => 'Integration',
+    ],
+    'qboReport' => [
+        'title'          => 'QBO Reports',
+        'title_singular' => 'QBO Report',
+    ],
+    'plaidTransaction' => [
+        'title'          => 'Plaid Transactions',
+        'title_singular' => 'Plaid Transaction',
+    ],
 ];

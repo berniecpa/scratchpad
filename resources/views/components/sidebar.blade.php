@@ -88,6 +88,35 @@
                         </ul>
                     </li>
                 @endcan
+                @can('integration_access')
+                    <li class="items-center">
+                        <a class="has-sub {{ request()->is("admin/qbo-reports*")||request()->is("admin/plaid-transactions*") ? "sidebar-nav-active" : "sidebar-nav" }}" href="#" onclick="window.openSubNav(this)">
+                            <i class="fa-fw fas c-sidebar-nav-icon fa-cogs">
+                            </i>
+                            {{ trans('cruds.integration.title') }}
+                        </a>
+                        <ul class="ml-4 subnav hidden">
+                            @can('qbo_report_access')
+                                <li class="items-center">
+                                    <a class="{{ request()->is("admin/qbo-reports*") ? "sidebar-nav-active" : "sidebar-nav" }}" href="{{ route("admin.qbo-reports.index") }}">
+                                        <i class="fa-fw c-sidebar-nav-icon fas fa-cogs">
+                                        </i>
+                                        {{ trans('cruds.qboReport.title') }}
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('plaid_transaction_access')
+                                <li class="items-center">
+                                    <a class="{{ request()->is("admin/plaid-transactions*") ? "sidebar-nav-active" : "sidebar-nav" }}" href="{{ route("admin.plaid-transactions.index") }}">
+                                        <i class="fa-fw c-sidebar-nav-icon fas fa-cogs">
+                                        </i>
+                                        {{ trans('cruds.plaidTransaction.title') }}
+                                    </a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
+                @endcan
                 @can('basic_c_r_m_access')
                     <li class="items-center">
                         <a class="has-sub {{ request()->is("admin/crm-statuses*")||request()->is("admin/crm-customers*")||request()->is("admin/crm-notes*")||request()->is("admin/crm-documents*") ? "sidebar-nav-active" : "sidebar-nav" }}" href="#" onclick="window.openSubNav(this)">
@@ -129,6 +158,26 @@
                                         <i class="fa-fw c-sidebar-nav-icon fas fa-folder">
                                         </i>
                                         {{ trans('cruds.crmDocument.title') }}
+                                    </a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
+                @endcan
+                @can('setting_access')
+                    <li class="items-center">
+                        <a class="has-sub {{ request()->is("admin/connections*") ? "sidebar-nav-active" : "sidebar-nav" }}" href="#" onclick="window.openSubNav(this)">
+                            <i class="fa-fw fas c-sidebar-nav-icon fa-cogs">
+                            </i>
+                            {{ trans('cruds.setting.title') }}
+                        </a>
+                        <ul class="ml-4 subnav hidden">
+                            @can('connection_access')
+                                <li class="items-center">
+                                    <a class="{{ request()->is("admin/connections*") ? "sidebar-nav-active" : "sidebar-nav" }}" href="{{ route("admin.connections.index") }}">
+                                        <i class="fa-fw c-sidebar-nav-icon fas fa-cogs">
+                                        </i>
+                                        {{ trans('cruds.connection.title') }}
                                     </a>
                                 </li>
                             @endcan
