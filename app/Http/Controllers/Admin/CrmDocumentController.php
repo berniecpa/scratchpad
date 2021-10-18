@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Traits\WithCSVImport;
 use App\Models\CrmDocument;
 use Gate;
 use Illuminate\Http\Request;
@@ -10,6 +11,13 @@ use Illuminate\Http\Response;
 
 class CrmDocumentController extends Controller
 {
+    use WithCSVImport;
+
+    public function __construct()
+    {
+        $this->csvImportModel = CrmDocument::class;
+    }
+
     public function index()
     {
         abort_if(Gate::denies('crm_document_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');

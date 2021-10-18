@@ -4,6 +4,7 @@ namespace App\Models;
 
 use \DateTimeInterface;
 use App\Support\HasAdvancedFilter;
+use App\Traits\Auditable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -16,6 +17,7 @@ class CrmDocument extends Model implements HasMedia
     use HasAdvancedFilter;
     use SoftDeletes;
     use InteractsWithMedia;
+    use Auditable;
 
     public $table = 'crm_documents';
 

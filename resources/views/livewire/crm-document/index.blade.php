@@ -21,7 +21,9 @@
             @endif
 
 
-
+            @can('crm_document_create')
+                <x-csv-import route="{{ route('admin.crm-documents.csv.store') }}" />
+            @endcan
 
         </div>
         <div class="w-full sm:w-1/2 sm:text-right">

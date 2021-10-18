@@ -9,7 +9,7 @@ class AddRelationshipFieldsToCrmDocumentsTable extends Migration
     public function up()
     {
         Schema::table('crm_documents', function (Blueprint $table) {
-            $table->unsignedBigInteger('customer_id');
+            $table->unsignedBigInteger('customer_id')->nullable();
             $table->foreign('customer_id', 'customer_fk_5138630')->references('id')->on('crm_customers');
         });
     }
